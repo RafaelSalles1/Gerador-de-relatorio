@@ -166,7 +166,7 @@ class MainApp():
         # CRIANDO UM ESTILO ESPECIFICO PARA O SUBTITULOTITULO E EDITANDO SUAS CARACTERISTICAS
         style = document.styles.add_style('Subtitulo', WD_STYLE_TYPE.PARAGRAPH)
         para_format = style.paragraph_format
-        para_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        para_format.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
         para_format.right_indent = Cm(-0.68)
         para_format.line_spacing = Cm(0)
         para_format.space_after = 0
@@ -193,7 +193,7 @@ class MainApp():
 
         # DEIXAR A FOLHA EM PAISAGEM E COM AS MARGENS CORRETAS
         section = document.sections[-1]
-        section.orientation = WD_ORIENT.LANDSCAPE
+        section.orientation = WD_ORIENTATION.LANDSCAPE
         section.page_width = Cm(29.7)
         section.page_height = Cm(21.0)
         section.bottom_margin = Cm(3.00)
@@ -333,7 +333,7 @@ class MainApp():
             paragrafo_melhorias.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem_melhorias, width=Cm(15.13))
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
 
         if self.var_geracao_de_vapor.get():
             # ADICIONANDO GERACAO DE VAPOR
@@ -349,10 +349,10 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(tabela_geracao)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(legenda_geracao, style="texto")
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
 
         if self.var_distribuicao_de_vapor.get():
             # ADICIONANDO DISTRIBUICAO
@@ -368,7 +368,7 @@ class MainApp():
             document.add_paragraph()
             document.add_picture(imagem_distribuicao)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(texto3_distribuicao, style='texto')
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
@@ -416,13 +416,13 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem_boaspraticas)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(texto6_boaspraticas, style="texto")
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem2_boaspraticas)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             if len(self.fotos_boas_praticas) >= 1:
                 document.add_page_break()
                 for self.foto in self.fotos_boas_praticas:
@@ -442,7 +442,7 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem_antesred)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             # document.add_picture(imagem2_antesred)
             # last_paragraph = document.paragraphs[-1]
             # last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -467,13 +467,13 @@ class MainApp():
             document.add_paragraph()
             document.add_picture(imagem_adequacao)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_picture(imagem2_adequacao)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_picture(tabela_adequacao)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(problema_adequacao, style='texto')
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
@@ -495,10 +495,10 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem_desaeracao)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_picture(imagem2_desaeracao)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(nota_desaeracao, style='texto')
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
@@ -524,7 +524,7 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem_drenagem_coletiva)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(texto3_drenagem_coletiva, style="texto")
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
@@ -556,11 +556,11 @@ class MainApp():
             document.add_paragraph()
             document.add_picture(imagem_vapor_preso)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(texto4_vapor_preso, style="texto")
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.LEFT
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
             document.add_paragraph()
             document.add_paragraph(texto5_vapor_preso, style="texto")
             last_paragraph = document.paragraphs[-1]
@@ -593,19 +593,19 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem_vapor_preso_cilindros)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(texto2_vapor_preso_cilindros, style="texto")
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem2_vapor_preso_cilindros)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(texto3_vapor_preso_cilindros, style="texto")
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem3_vapor_preso_cilindros)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(texto4_vapor_preso_cilindros, style="texto")
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
@@ -614,7 +614,7 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem4_vapor_preso_cilindros)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             if len(self.fotos_vapor_preso_cilindros) >= 1:
                 document.add_page_break()
                 for self.foto in self.fotos_vapor_preso_cilindros:
@@ -634,10 +634,10 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(tabela_isolamento)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_picture(tabela2_isolamento)
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             if len(self.fotos_tubos_isolamento) >= 1:
                 document.add_page_break()
                 for self.foto in self.fotos_tubos_isolamento:
@@ -657,7 +657,7 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(grafico_boia_termo, width=Cm(15))
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             document.add_paragraph(texto2_boia_termo, style='texto')
             last_paragraph = document.paragraphs[-1]
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
@@ -674,7 +674,7 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(tabela_vaz_ext, width=Cm(10.13))
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             if len(self.fotos_locais_vaz_ext) >= 1:
                 document.add_page_break()
                 for self.foto in self.fotos_locais_vaz_ext:
@@ -694,7 +694,7 @@ class MainApp():
             last_paragraph.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE
             document.add_picture(imagem_bypass, height=Cm(3))
             last_paragraph = document.paragraphs[-1]
-            last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            last_paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
             if len(self.fotos_valvulas_bypass) >= 1:
                 document.add_page_break()
                 for self.foto in self.fotos_valvulas_bypass:
