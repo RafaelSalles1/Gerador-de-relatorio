@@ -12,14 +12,17 @@ from docx.enum.text import *
 from docx.enum.style import *
 from docx.enum.dml import *
 import pandas as pd
-
+import sys
+import os
 
 class MainApp():
     def __init__(self, root):
 
         self.root = root
+        self.pasta_correta = sys.path[0].replace(r'\Gerador II', '') 
+        self.rota_logo = self.pasta_correta + r'\LOGO DISPARCO\PNG-transparente.png'
 
-        self.imagem_disparco = Image.open(r'C:\Users\rafael\Desktop\DESKTOP\rafael\projects\Gerador de relatorio\LOGO DISPARCO\PNG-transparente.png')
+        self.imagem_disparco = Image.open(self.rota_logo)
         self.imagem_disparco = self.imagem_disparco.resize((280, 130))
         self.logo_disparco = ImageTk.PhotoImage(self.imagem_disparco)
 
@@ -145,14 +148,14 @@ class MainApp():
     def click(self):
         self.nome_cliente_str = self.nome_cliente.get()
         self.num_proc_str = self.num_proc.get()
-        self.save_name = "RG-" + self.num_proc_str + "-001-20-00-Relatório de Gerenciamento-" + self.nome_cliente_str + ".docx"
-        self.rota_imagens = 'C:/Users/rafael/Desktop/DESKTOP/rafael/projects/Gerador de relatorio/imagens_relatorio'
+        self.save_name = self.pasta_correta + r"\RG-" + self.num_proc_str + "-001-20-00-Relatório de Gerenciamento-" + self.nome_cliente_str + ".docx"
+        self.rota_imagens = self.pasta_correta + r'\imagens_relatorio'
         document = Document()
 
         # CRIANDO UM ESTILO ESPECIFICO PARA O TITULO E EDITANDO SUAS CARACTERISTICAS
         style = document.styles.add_style('Titulo', WD_STYLE_TYPE.PARAGRAPH)
         para_format = style.paragraph_format
-        #para_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        para_format.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
         para_format.line_spacing = 1.5
         para_format.right_indent = Cm(1.09)
         para_format.line_spacing = Cm(1.50)
@@ -179,7 +182,7 @@ class MainApp():
         # CRIANDO UM ESTILO ESPECIFICO PARA O TEXTO EM GERAL E EDITANDO SUAS CARACTERISTICAS
         style = document.styles.add_style('texto', WD_STYLE_TYPE.PARAGRAPH)
         para_format = style.paragraph_format
-        #para_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        para_format.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
         para_format.right_indent = Cm(0)
         para_format.line_spacing = Cm(0)
         para_format.space_after = 0
@@ -188,7 +191,7 @@ class MainApp():
         font.size = Pt(12)
 
         # ABRIR O EXCEL
-        import_file_path = r'C:\Users\rafael\Desktop\DESKTOP\rafael\projects\Gerador de relatorio\Relatório Padrão TMS - Não Apagar.xlsx'
+        import_file_path = self.pasta_correta + '\Relatório Padrão TMS - Não Apagar.xlsx'
         df = pd.read_excel(import_file_path)
 
         # DEIXAR A FOLHA EM PAISAGEM E COM AS MARGENS CORRETAS
